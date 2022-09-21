@@ -14,6 +14,7 @@ def calculator():
         if user_input == "compute":
             print_average(numbers)
             finished = True
+        
            
         else:
             try:
@@ -21,6 +22,7 @@ def calculator():
             except ValueError:
                 print("Invalid input. Input must be an integer or 'compute'")
                 continue
+           
 
             numbers.append(number)
 
@@ -31,5 +33,7 @@ def print_average(numbers):
 
 
 def rounded_average(numbers):
+    if len(numbers) == 0:
+        raise ValueError("cannot compute average of an empty collection")
     avg = sum(numbers) / len(numbers)
     return floor(avg)
